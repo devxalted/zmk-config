@@ -5,6 +5,7 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 / {
@@ -83,32 +84,23 @@
 
         Media {
             bindings = <
-&none  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &none
-&none  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &none
-&none  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &none
-                       &trans  &trans  &trans    &none   &trans  &trans
+&none  &trans  &trans  &trans  &trans  &trans       &trans  &kp K_MUTE      &kp C_VOLUME_DOWN  &kp C_VOL_UP  &trans                                &none
+&none  &trans  &trans  &trans  &trans  &trans       &trans  &kp C_PREVIOUS  &kp C_PP           &kp C_NEXT    &trans                                &none
+&none  &trans  &trans  &trans  &trans  &trans       &trans  &kp COMMA       &kp ENTER          &kp A         &kp C_AC_NEXT_KEYBOARD_LAYOUT_SELECT  &none
+                       &trans  &trans  &kp ENTER    &trans  &trans          &trans
+            >;
+        };
+
+        bluetooth {
+            bindings = <
+&none  &trans  &bt BT_SEL 0  &bt BT_SEL 2  &bt BT_SEL 2  &trans    &trans      &trans      &trans      &trans  &bt BT_CLR  &none
+&none  &trans  &bt BT_SEL 3  &bt BT_SEL 4  &trans        &trans    &bt BT_PRV  &bt BT_NXT  &trans      &trans  &trans      &none
+&none  &trans  &trans        &trans        &trans        &trans    &trans      &trans      &trans      &trans  &trans      &none
+                             &sys_reset    &trans        &trans    &trans      &trans      &sys_reset
             >;
         };
 
         layer_4 {
-            bindings = <
-&none  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &none
-&none  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &none
-&none  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &none
-                       &trans  &trans  &trans    &trans  &trans  &trans
-            >;
-        };
-
-        layer_5 {
-            bindings = <
-&none  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &none
-&none  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &none
-&none  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &none
-                       &trans  &trans  &trans    &trans  &trans  &trans
-            >;
-        };
-
-        layer_6 {
             bindings = <
 &none  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &none
 &none  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &none
@@ -123,7 +115,7 @@
 
         Lyr5 {
             if-layers = <1 2>;
-            then-layer = <5>;
+            then-layer = <4>;
         };
     };
 };
