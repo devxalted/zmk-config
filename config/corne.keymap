@@ -8,6 +8,24 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    behaviors {
+        r_pinky_dance: r_pinky_dance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "R_PINKY_DANCE";
+            #binding-cells = <0>;
+            bindings = <&kp PERIOD>, <&kp QUESTION>, <&kp EXCLAMATION>;
+        };
+
+        rpinkydancemod: rpinkydancemod {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RPINKYDANCEMOD";
+            bindings = <&r_pinky_dance>, <&kp COMMA>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT)>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -19,10 +37,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q           &kp W  &kp E      &kp R      &kp T        &kp Y        &kp U        &kp I     &kp O  &kp P          &none
-&none  &kp A           &kp S  &kp D      &kp F      &kp G        &kp H        &kp J        &kp K     &kp L  &kp LS(COLON)  &none
-&none  &sk LEFT_SHIFT  &kp Z  &kp X      &kp C      &kp V        &kp B        &kp N        &kp M     &none  &kp RSHFT      &none
-                              &kp LCTRL  &lt 3 TAB  &lt 1 ESC    &lt 2 SPACE  &lt 4 ENTER  &kp BSPC
+&none  &kp Q           &kp W  &kp E       &kp R               &kp T        &kp Y        &kp U        &kp I     &kp O            &kp P            &none
+&none  &mt LCTRL A     &kp S  &mt LALT D  &mt LEFT_COMMAND F  &kp G        &kp H        &kp J        &kp K     &kp L            &kp COLON        &none
+&none  &sk LEFT_SHIFT  &kp Z  &kp X       &kp C               &kp V        &kp B        &kp N        &kp M     &rpinkydancemod  &sk RIGHT_SHIFT  &none
+                              &kp LCTRL   &lt 3 TAB           &lt 1 ESC    &lt 2 SPACE  &lt 4 ENTER  &kp BSPC
             >;
         };
 
@@ -34,10 +52,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&none  &kp ESC  &kp O  &kp W    &kp R  &kp Y     &kp LS(LPAR)   &kp B      &kp UP         &kp E      &kp LS(RPAR)  &none
-&none  &kp A    &kp S  &kp D    &kp F  &kp I     &kp LS(CARET)  &kp LEFT   &kp DOWN       &kp RIGHT  &kp LS(DLLR)  &trans
-&none  &kp Z    &kp Z  &kp P    &kp C  &kp V     &kp LS(LBRC)   &kp LC(D)  &kp LS(PRCNT)  &kp LC(U)  &kp LS(RBRC)  &trans
-                       &kp ESC  &kp U  &trans    &kp LCTRL      &kp LSHFT  &kp G
+&none  &kp ESC  &kp O  &kp W    &kp R  &kp Y     &kp LEFT_PARENTHESIS  &kp B      &kp UP       &kp E      &kp RIGHT_PARENTHESIS  &none
+&none  &kp A    &kp S  &kp D    &kp F  &kp I     &kp CARET             &kp LEFT   &kp DOWN     &kp RIGHT  &kp DOLLAR             &trans
+&none  &kp Z    &kp Z  &kp P    &kp C  &kp V     &kp LEFT_BRACE        &kp LC(D)  &kp PERCENT  &kp LC(U)  &kp RIGHT_BRACE        &trans
+                       &kp ESC  &kp U  &trans    &kp LCTRL             &kp LSHFT  &kp G
             >;
         };
 
@@ -49,10 +67,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&none  &kp FSLH      &kp N1  &kp N2   &kp N3   &kp MINUS    &kp UNDERSCORE  &kp LS(LPAR)  &kp LS(RPAR)  &kp LBKT      &kp RBKT       &none
-&none  &kp LS(STAR)  &kp N4  &kp N5   &kp N6   &kp PLUS     &kp EQUAL       &kp LS(LBRC)  &kp LS(RBRC)  &kp SQT       &kp SQT        &none
-&none  &kp LSHFT     &kp N7  &kp N8   &kp N9   &kp RET      &kp LS(GT)      &kp LS(LT)    &kp DOT       &kp QUESTION  &kp AMPERSAND  &none
-                             &kp RET  &kp TAB  &kp SPACE    &trans          &kp LSHFT     &kp BSLH
+&none  &kp FSLH   &kp N1  &kp N2   &kp N3   &kp MINUS    &kp UNDERSCORE    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LBKT      &kp RBKT       &none
+&none  &kp ASTRK  &kp N4  &kp N5   &kp N6   &kp PLUS     &kp EQUAL         &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE      &kp SQT        &none
+&none  &kp LSHFT  &kp N7  &kp N8   &kp N9   &kp RET      &kp GREATER_THAN  &kp LESS_THAN         &kp DOT                &kp QUESTION  &kp AMPERSAND  &none
+                          &kp RET  &kp TAB  &kp SPACE    &trans            &kp LSHFT             &kp BSLH
             >;
         };
 
