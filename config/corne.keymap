@@ -24,6 +24,13 @@
             #binding-cells = <0>;
             mods = <(MOD_RSFT)>;
         };
+
+        colon_dance: colon_dance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "COLON_DANCE";
+            #binding-cells = <0>;
+            bindings = <&kp COLON>, <&kp SEMICOLON>;
+        };
     };
 
     keymap {
@@ -37,10 +44,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q           &kp W  &kp E       &kp R               &kp T        &kp Y        &kp U        &kp I     &kp O            &kp P            &none
-&none  &mt LCTRL A     &kp S  &mt LALT D  &mt LEFT_COMMAND F  &kp G        &kp H        &kp J        &kp K     &kp L            &kp COLON        &none
-&none  &sk LEFT_SHIFT  &kp Z  &kp X       &kp C               &kp V        &kp B        &kp N        &kp M     &rpinkydancemod  &sk RIGHT_SHIFT  &none
-                              &kp LCTRL   &lt 3 TAB           &lt 1 ESC    &lt 2 SPACE  &lt 4 ENTER  &kp BSPC
+&none  &kp Q           &kp W  &kp E       &kp R               &kp T        &kp Y        &kp U                &kp I     &kp O            &kp P            &none
+&none  &mt LCTRL A     &kp S  &mt LALT D  &mt LEFT_COMMAND F  &kp G        &kp H        &mt RIGHT_COMMAND J  &kp K     &kp L            &colon_dance     &none
+&none  &sk LEFT_SHIFT  &kp Z  &kp X       &kp C               &kp V        &kp B        &kp N                &kp M     &rpinkydancemod  &sk RIGHT_SHIFT  &none
+                              &kp LCTRL   &lt 3 TAB           &lt 1 ESC    &lt 2 SPACE  &lt 4 ENTER          &kp BSPC
             >;
         };
 
