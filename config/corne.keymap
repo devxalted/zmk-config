@@ -9,9 +9,7 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
-    chosen {
-      zmk,matrix_transform = &five_column_transform;
-    };
+    chosen { zmk,matrix_transform = &five_column_transform; };
 
     behaviors {
         r_pinky_dance: r_pinky_dance {
@@ -36,6 +34,13 @@
             #binding-cells = <0>;
             bindings = <&kp COLON>, <&kp SEMICOLON>;
         };
+
+        mod_keys: mod_keys {
+            compatible = "zmk,behavior-tap-dance";
+            label = "MOD_KEYS";
+            #binding-cells = <0>;
+            bindings = <&sk LEFT_COMMAND>, <&mo 6>;
+        };
     };
 
     keymap {
@@ -49,10 +54,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp Q           &kp W  &kp E       &kp R                                     &kp T        &kp Y        &kp U                &kp I     &kp O            &kp P            
-&mt LCTRL A     &kp S  &mt LALT D  &mt LEFT_COMMAND F                        &kp G        &kp H        &mt RIGHT_COMMAND J  &kp K     &kp L            &colon_dance     
-&sk LEFT_SHIFT  &kp Z  &kp X       &kp C                                     &kp V        &kp B        &kp N                &kp M     &rpinkydancemod  &sk RIGHT_SHIFT  
-                              &kp LCTRL   &mt C_AC_NEXT_KEYBOARD_LAYOUT_SELECT TAB  &lt 1 ESC    &lt 2 SPACE  &lt 3 ENTER          &kp BSPC
+  &kp Q           &kp W  &kp E             &kp R                                     &kp T        &kp Y        &kp U                &kp I     &kp O            &kp P
+  &kp A           &kp S  &kp D             &kp F                                     &kp G        &kp H        &mt RIGHT_COMMAND J  &kp K     &kp L            &colon_dance
+  &sk LEFT_SHIFT  &kp Z  &kp X             &kp C                                     &kp V        &kp B        &kp N                &kp M     &rpinkydancemod  &sk RIGHT_SHIFT
+                         &kp LEFT_COMMAND  &mt C_AC_NEXT_KEYBOARD_LAYOUT_SELECT TAB  &lt 1 ESC    &lt 2 ENTER  &lt 3 SPACE          &kp BSPC
             >;
         };
 
@@ -64,10 +69,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp ESC  &kp O  &kp W    &kp R  &kp Y     &kp LEFT_PARENTHESIS  &kp B      &kp UP       &kp E      &kp RIGHT_PARENTHESIS  
-&kp A    &kp S  &kp D    &kp F  &kp I     &kp CARET             &kp LEFT   &kp DOWN     &kp RIGHT  &kp DOLLAR             
-&mo 2    &kp Z  &kp P    &kp C  &kp V     &kp LEFT_BRACE        &kp LC(D)  &kp PERCENT  &kp LC(U)  &kp RIGHT_BRACE        
-                       &kp ESC  &kp U  &trans    &kp LCTRL             &kp LSHFT  &kp G
+  &kp ESC  &kp O  &kp W    &kp R  &kp Y     &kp LEFT_PARENTHESIS  &kp B      &kp UP       &kp E      &kp RIGHT_PARENTHESIS
+  &kp A    &kp S  &kp D    &kp F  &kp I     &kp CARET             &kp LEFT   &kp DOWN     &kp RIGHT  &kp DOLLAR
+  &mo 2    &kp Z  &kp P    &kp C  &kp V     &kp LEFT_BRACE        &kp LC(D)  &kp PERCENT  &kp LC(U)  &kp RIGHT_BRACE
+                  &kp ESC  &kp U  &trans    &kp LCTRL             &kp LSHFT  &kp G
             >;
         };
 
@@ -79,46 +84,46 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp BACKSLASH   &kp N1  &kp N2        &kp N3   &kp MINUS    &kp UNDERSCORE    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LBKT          &kp RBKT       
-&kp ASTRK       &kp N4  &kp N5        &kp N6   &kp PLUS     &kp EQUAL         &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SINGLE_QUOTE  &kp QUESTION   
-&sk LEFT_SHIFT  &kp N7  &kp N8        &kp N9   &kp ENTER    &kp GREATER_THAN  &kp SLASH             &kp DOT                &kp PIPE          &kp AMPERSAND  
-                               &kp NUMBER_0  &kp TAB  &kp SPACE    &trans            &kp COLON             &kp GREATER_THAN
+  &kp BACKSLASH   &kp N1  &kp N2        &kp N3   &kp MINUS    &kp UNDERSCORE    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LBKT          &kp RBKT
+  &kp ASTRK       &kp N4  &kp N5        &kp N6   &kp PLUS     &kp EQUAL         &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SINGLE_QUOTE  &kp QUESTION
+  &sk LEFT_SHIFT  &kp N7  &kp N8        &kp N9   &kp ENTER    &kp GREATER_THAN  &kp SLASH             &kp DOT                &kp PIPE          &kp AMPERSAND
+                          &kp NUMBER_0  &kp TAB  &kp SPACE    &trans            &kp COLON             &kp GREATER_THAN
             >;
         };
 
         Media {
             bindings = <
-&trans  &trans  &trans  &trans  &trans       &trans  &kp K_MUTE      &kp C_VOLUME_DOWN  &kp C_VOL_UP  &trans                                
-&trans  &trans  &trans  &trans  &trans       &trans  &kp C_PREVIOUS  &kp C_PP           &kp C_NEXT    &trans                                
-&trans  &trans  &trans  &trans  &trans       &trans  &kp COMMA       &kp ENTER          &kp A         &kp C_AC_NEXT_KEYBOARD_LAYOUT_SELECT  
-                       &trans  &trans  &kp ENTER    &trans  &trans          &trans
+  &trans  &trans  &trans  &trans  &trans       &trans  &kp K_MUTE      &kp C_VOLUME_DOWN  &kp C_VOL_UP  &trans
+  &trans  &trans  &trans  &trans  &trans       &trans  &kp C_PREVIOUS  &kp C_PP           &kp C_NEXT    &trans
+  &trans  &trans  &trans  &trans  &trans       &trans  &kp COMMA       &kp ENTER          &kp A         &kp C_AC_NEXT_KEYBOARD_LAYOUT_SELECT
+                  &trans  &trans  &kp ENTER    &trans  &trans          &trans
             >;
         };
 
         bluetooth {
             bindings = <
-&trans  &bt BT_SEL 0  &bt BT_SEL 2  &bt BT_SEL 2  &trans    &trans      &trans      &trans      &trans  &bt BT_CLR  
-&trans  &bt BT_SEL 3  &bt BT_SEL 4  &trans        &trans    &bt BT_PRV  &bt BT_NXT  &trans      &trans  &trans      
-&bootloader  &trans        &trans        &trans        &trans    &trans      &trans      &trans      &trans  &bootloader      
+  &trans       &bt BT_SEL 0  &bt BT_SEL 2  &bt BT_SEL 2  &trans    &trans      &trans      &trans  &trans  &bt BT_CLR
+  &trans       &bt BT_SEL 3  &bt BT_SEL 4  &trans        &trans    &bt BT_PRV  &bt BT_NXT  &trans  &trans  &trans
+  &bootloader  &trans        &trans        &trans        &trans    &trans      &trans      &trans  &trans  &bootloader
                              &sys_reset    &trans        &trans    &trans      &trans      &trans
             >;
         };
 
         lyr_toggle_sel {
             bindings = <
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  
-&trans  &trans  &trans  &tog 0  &trans    &trans  &tog 6  &trans  &trans  &trans  
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  
-                &trans  &trans  &trans    &trans  &trans  &trans
-     >;
- };
+  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &tog 0  &trans    &trans  &tog 6  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+                  &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
 
- win_default_lyr {
-     bindings = <
-&kp Q      &kp W  &kp E      &kp R    &kp T      &kp Y      &kp U    &kp I     &kp O           &kp P         
-&kp A      &kp S  &kp D      &kp F    &kp G      &kp H      &kp J    &kp K     &kp L           &colon_dance  
-&kp LSHFT  &kp Z  &kp X      &kp C    &kp V      &kp B      &kp N    &kp M     &r_pinky_dance  &kp RSHFT     
-                         &kp RSHFT  &kp TAB  &kp ESC    &kp SPACE  &kp RET  &kp BSPC
+        win_default_lyr {
+            bindings = <
+  &kp Q      &kp W             &kp E         &kp R             &kp T      &kp Y      &kp U              &kp I          &kp O              &kp P
+  &kp A      &kp LEFT_COMMAND  &sk LEFT_ALT  &sk LEFT_COMMAND  &kp G      &kp H      &sk RIGHT_COMMAND  &sk RIGHT_ALT  &sk RIGHT_CONTROL  &colon_dance
+  &kp LSHFT  &kp Z             &kp X         &kp C             &kp V      &kp B      &kp N              &kp M          &r_pinky_dance     &kp RSHFT
+                               &trans        &kp TAB           &kp ESC    &kp ENTER  &kp SPACE          &kp BSPC
             >;
         };
     };
