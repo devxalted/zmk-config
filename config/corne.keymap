@@ -41,6 +41,17 @@
             #binding-cells = <0>;
             bindings = <&sk LEFT_COMMAND>, <&mo 6>;
         };
+
+        right_mod_cmd: right_mod_cmd {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RIGHT_MOD_CMD";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            hold-trigger-key-positions = <17 4 14 24 32 31 23 13 3 2 12 22 21 11 1 0 10 20 30>;
+        };
     };
 
     keymap {
@@ -54,10 +65,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-  &kp Q  &kp W  &kp E      &kp R                                     &kp T        &kp Y        &kp U                &kp I         &kp O            &kp BACKSPACE
-  &kp A  &kp S  &kp D      &kp F                                     &kp G        &kp H        &mt RIGHT_COMMAND J  &kp K         &kp L            &kp P
-  &kp Z  &kp X  &kp C      &kp V                                     &kp B        &kp N        &kp M                &kp COMMA     &rpinkydancemod  &sk RIGHT_SHIFT
-                &mod_keys  &mt C_AC_NEXT_KEYBOARD_LAYOUT_SELECT TAB  &lt 1 ESC    &lt 2 SPACE  &lt 3 ENTER          &colon_dance
+  &kp Q           &kp W  &kp E      &kp R                                     &kp T        &kp Y        &kp U                           &kp I          &kp O            &kp P
+  &kp A           &kp S  &kp D      &kp F                                     &kp G        &kp H        &right_mod_cmd RIGHT_COMMAND J  &kp K          &kp L            &colon_dance
+  &sk LEFT_SHIFT  &kp Z  &kp X      &kp C                                     &kp V        &kp B        &kp N                           &kp M          &rpinkydancemod  &sk RIGHT_SHIFT
+                         &mod_keys  &mt C_AC_NEXT_KEYBOARD_LAYOUT_SELECT TAB  &lt 1 ESC    &lt 2 SPACE  &lt 3 ENTER                     &kp BACKSPACE
             >;
         };
 
