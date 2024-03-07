@@ -50,12 +50,12 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
-            hold-trigger-key-positions = <17 4 14 24 32 31 23 13 3 2 12 22 21 11 1 0 10 20 30>;
+            hold-trigger-key-positions = <17 4 14 24 32 31 23 13 3 2 12 22 21 11 1 0 10 20 30 33 34>;
         };
 
-        left_HRM: left_HRM {
+        left_mod_command: left_mod_command {
             compatible = "zmk,behavior-hold-tap";
-            label = "LEFT_HRM";
+            label = "LEFT_MOD_COMMAND";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -93,10 +93,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-  &kp Q           &kp W  &kp E      &kp R                         &kp T        &kp Y                  &kp U                           &kp I          &kp O            &kp P
-  &kp A           &kp S  &kp D      &left_HRM LEFT_COMMAND F      &kp G        &kp H                  &right_mod_cmd RIGHT_COMMAND J  &kp K          &kp L            &colon_dance
-  &sk LEFT_SHIFT  &kp Z  &kp X      &kp C                         &kp V        &kp B                  &kp N                           &kp M          &rpinkydancemod  &sk RIGHT_CONTROL
-                         &mod_keys  &mt LC(LA(LEFT_COMMAND)) TAB  &lt 1 ESC    &right_thumb_tapdance  &lt 3 ENTER                     &kp BACKSPACE
+  &kp Q           &kp W  &kp E      &kp R                             &kp T        &kp Y                  &kp U                           &kp I          &kp O            &kp P
+  &kp A           &kp S  &kp D      &left_mod_command LEFT_COMMAND F  &kp G        &kp H                  &right_mod_cmd RIGHT_COMMAND J  &kp K          &kp L            &colon_dance
+  &sk LEFT_SHIFT  &kp Z  &kp X      &kp C                             &kp V        &kp B                  &kp N                           &kp M          &rpinkydancemod  &sk RIGHT_CONTROL
+                         &mod_keys  &mt LC(LA(LEFT_COMMAND)) TAB      &lt 1 ESC    &right_thumb_tapdance  &lt 3 ENTER                     &kp BACKSPACE
             >;
         };
 
