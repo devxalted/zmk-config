@@ -101,10 +101,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-  &kp ESC  &kp O  &kp W    &kp R  &kp Y     &kp LEFT_PARENTHESIS  &kp B      &kp UP       &kp E      &kp RIGHT_PARENTHESIS
-  &kp A    &kp S  &kp D    &kp F  &kp I     &kp CARET             &kp LEFT   &kp DOWN     &kp RIGHT  &kp DOLLAR
-  &mo 2    &kp Z  &kp P    &kp C  &kp V     &kp LEFT_BRACE        &kp LC(D)  &kp PERCENT  &kp LC(U)  &kp RIGHT_BRACE
-                  &kp ESC  &kp U  &trans    &kp LCTRL             &kp LSHFT  &kp G
+  &kp ESC  &kp O  &kp W    &kp R  &kp Y     &kp LEFT_PARENTHESIS  &kp B           &kp E         &kp LC(U)  &kp RIGHT_PARENTHESIS
+  &kp A    &kp S  &kp D    &kp F  &kp I     &kp LEFT_ARROW        &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &kp PERCENT
+  &mo 2    &kp Z  &kp P    &kp C  &kp V     &kp LEFT_BRACE        &kp CARET       &kp DOLLAR    &kp LC(D)  &kp RIGHT_BRACE
+                  &kp ESC  &kp U  &trans    &kp LCTRL             &kp LSHFT       &kp G
             >;
         };
 
@@ -119,7 +119,7 @@
   &kp BACKSLASH   &kp N1  &kp N2        &kp N3   &kp MINUS    &kp UNDERSCORE    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LBKT          &kp RBKT
   &kp ASTRK       &kp N4  &kp N5        &kp N6   &kp PLUS     &kp EQUAL         &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SINGLE_QUOTE  &kp QUESTION
   &sk LEFT_SHIFT  &kp N7  &kp N8        &kp N9   &kp GRAVE    &kp GREATER_THAN  &kp SLASH             &kp DOT                &kp PIPE          &kp AMPERSAND
-                          &kp NUMBER_0  &kp TAB  &kp SPACE    &trans            &kp COLON             &kp GREATER_THAN
+                          &kp NUMBER_0  &kp TAB  &kp SPACE    &trans            &kp COLON             &kp LESS_THAN
             >;
         };
 
