@@ -25,7 +25,7 @@
             bindings = <&r_pinky_dance>, <&kp COMMA>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_RCTL)>;
         };
 
         colon_dance: colon_dance {
