@@ -206,10 +206,10 @@
 
         Media {
             bindings = <
-  &trans  &trans  &trans             &trans             &trans               &kp LG(LC(LS(F)))  &kp K_MUTE             &kp C_VOLUME_DOWN  &kp C_VOL_UP       &trans
-  &trans  &trans  &kp LS(LC(LG(B)))  &kp LS(LC(LG(A)))  &kp LS(LC(LG(C)))    &kp LG(LA(LS(G)))  &kp C_PREVIOUS         &kp C_PP           &kp C_NEXT         &trans
-  &trans  &trans  &trans             &trans             &trans               &trans             &kp LA(LG(LC(COMMA)))  &kp LG(LC(LS(D)))  &kp LS(LC(LG(E)))  &trans
-                  &trans             &trans             &trans               &trans             &kp LC(LG(LA(ENTER)))  &trans
+  &kp LS(LC(LG(H)))  &kp LS(LC(LG(I)))  &kp LS(LC(LG(J)))  &kp LS(LC(LG(K)))  &kp LS(LC(LG(L)))    &kp LG(LC(LS(F)))  &kp K_MUTE             &kp C_VOLUME_DOWN  &kp C_VOL_UP       &kp LS(LC(LG(A)))
+  &kp LS(LC(LG(M)))  &kp LS(LC(LG(N)))  &kp LS(LC(LG(O)))  &kp LS(LC(LG(P)))  &kp LS(LC(LG(Q)))    &kp LG(LA(LS(G)))  &kp C_PREVIOUS         &kp C_PP           &kp C_NEXT         &kp LS(LC(LG(B)))
+  &kp R              &kp S              &kp T              &kp U              &kp V                &kp Z              &kp LA(LG(LC(COMMA)))  &kp LG(LC(LS(D)))  &kp LS(LC(LG(E)))  &kp LS(LC(LG(C)))
+                                        &kp LS(LC(LG(W)))  &kp LS(LC(LG(X)))  &trans               &trans             &kp LC(LG(LA(ENTER)))  &kp LS(LC(LG(Y)))
             >;
         };
 
