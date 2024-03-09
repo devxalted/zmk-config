@@ -206,10 +206,10 @@
 
         Media {
             bindings = <
-  &trans  &trans  &trans             &trans             &trans               &trans  &kp K_MUTE             &kp C_VOLUME_DOWN      &kp C_VOL_UP  &trans
-  &trans  &trans  &kp LS(LC(LG(B)))  &kp LS(LC(LG(A)))  &kp LS(LC(LG(C)))    &trans  &kp C_PREVIOUS         &kp C_PP               &kp C_NEXT    &trans
-  &trans  &trans  &trans             &trans             &trans               &trans  &kp LA(LG(LC(COMMA)))  &kp LA(LG(LC(ENTER)))  &trans        &trans
-                  &trans             &trans             &trans               &trans  &trans                 &trans
+  &trans  &trans  &trans             &trans             &trans               &trans  &kp K_MUTE             &kp C_VOLUME_DOWN  &kp C_VOL_UP       &trans
+  &trans  &trans  &kp LS(LC(LG(B)))  &kp LS(LC(LG(A)))  &kp LS(LC(LG(C)))    &trans  &kp C_PREVIOUS         &kp C_PP           &kp C_NEXT         &trans
+  &trans  &trans  &trans             &trans             &trans               &trans  &kp LA(LG(LC(COMMA)))  &kp LG(LC(LS(D)))  &kp LS(LC(LG(E)))  &trans
+                  &trans             &trans             &trans               &trans  &kp LC(LG(LA(ENTER)))  &trans
             >;
         };
 
