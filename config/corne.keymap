@@ -68,7 +68,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "RIGHT_THUMB_TAPDANCE";
             #binding-cells = <0>;
-            bindings = <&lt 2 SPACE>, <&mo 4>;
+            bindings = <&lt 2 SPACE>, <&mo 0>;
         };
 
         escape: escape {
@@ -95,7 +95,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "QUOTE";
             #binding-cells = <0>;
-            bindings = <&kp SQT>, <&kp GRAVE>;
+            bindings = <&kp SQT>, <&kp GRAVE>, <&triple_grave>;
         };
     };
 
@@ -112,6 +112,20 @@
             bindings = <&mo 3>;
             key-positions = <32 33>;
         };
+
+        layer_toggle_layer {
+            bindings = <&mo 6>;
+            key-positions = <31 34>;
+        };
+    };
+
+    macros {
+        triple_grave: triple_grave {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp GRAVE &kp GRAVE &kp GRAVE>;
+            label = "TRIPLE_GRAVE";
+        };
     };
 
     keymap {
@@ -126,9 +140,9 @@
 
             bindings = <
   &kp Q           &kp W  &kp E      &kp R                             &kp T                                  &kp Y           &kp U                           &kp I             &kp O  &kp BACKSPACE
-  &kp A           &kp S  &kp D      &left_mod_command LEFT_COMMAND F  &kp G                                  &kp H           &right_mod_cmd RIGHT_COMMAND J  &kp K             &kp L  &colon_dance
+  &kp A           &kp S  &kp D      &left_mod_command LEFT_COMMAND F  &kp G                                  &kp H           &right_mod_cmd RIGHT_COMMAND J  &kp K             &kp L  &quote
   &sk LEFT_SHIFT  &kp Z  &kp X      &kp C                             &kp V                                  &kp B           &kp N                           &kp M             &kp P  &rpinkydancemod
-                         &mod_keys  &lt 1 TAB                         &escape LA(LC(LEFT_COMMAND)) ESCAPE    &enter 2 SPACE  &lt 3 ENTER                     &sk LEFT_CONTROL
+                         &mod_keys  &lt 1 TAB                         &escape LA(LC(LEFT_COMMAND)) ESCAPE    &enter 2 SPACE  &lt 4 ENTER                     &sk LEFT_CONTROL
             >;
         };
 
@@ -140,10 +154,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-  &kp ESC  &kp O  &kp W    &kp R  &kp Y     &kp LEFT_PARENTHESIS  &kp B           &kp E         &kp LC(U)  &kp RIGHT_PARENTHESIS
-  &kp A    &kp S  &kp D    &kp F  &kp I     &kp LEFT_ARROW        &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &kp PERCENT
-  &mo 2    &kp Z  &kp P    &kp C  &kp V     &kp LEFT_BRACE        &kp CARET       &kp DOLLAR    &kp LC(D)  &kp RIGHT_BRACE
-                  &kp ESC  &kp U  &trans    &kp LCTRL             &kp LSHFT       &kp G
+  &kp ESC     &kp O  &kp W  &kp R  &kp Y    &kp LEFT_PARENTHESIS  &kp B            &kp E         &kp LC(U)  &kp RIGHT_PARENTHESIS
+  &kp A       &kp S  &kp D  &kp F  &kp I    &kp LEFT_ARROW        &kp DOWN_ARROW   &kp UP_ARROW  &kp RIGHT  &kp PERCENT
+  &kp ESCAPE  &kp Z  &kp P  &kp C  &kp V    &kp LEFT_BRACE        &kp CARET        &kp DOLLAR    &kp LC(D)  &kp RIGHT_BRACE
+                     &mo 2  &kp U  &kp U    &kp LCTRL             &sk RIGHT_SHIFT  &kp G
             >;
         };
 
@@ -155,9 +169,9 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-  &kp BACKSLASH   &kp N1  &kp N2        &kp N3   &kp PLUS     &kp UNDERSCORE    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp TILDE  &kp BACKSPACE
-  &kp ASTRK       &kp N4  &kp N5        &kp N6   &kp MINUS    &kp EQUAL         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &quote     &kp SLASH
-  &sk LEFT_SHIFT  &kp N7  &kp N8        &kp N9   &kp POUND    &kp GREATER_THAN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE   &kp AMPERSAND
+  &kp BACKSLASH   &kp N1  &kp N2        &kp N3   &kp PLUS     &kp UNDERSCORE    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp TILDE     &kp BACKSPACE
+  &kp ASTRK       &kp N4  &kp N5        &kp N6   &kp MINUS    &kp EQUAL         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &colon_dance  &kp SLASH
+  &sk LEFT_SHIFT  &kp N7  &kp N8        &kp N9   &kp POUND    &kp GREATER_THAN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE      &kp AMPERSAND
                           &kp NUMBER_0  &kp TAB  &kp SPACE    &trans            &kp COLON             &kp LESS_THAN
             >;
         };
@@ -171,18 +185,18 @@
             >;
         };
 
-        layer_7 {
+        utillity_layer {
             bindings = <
-  &kp LS(TILDE)  &kp LS(EXCL)  &kp LS(AT)     &kp LS(POUND)  &trans           &trans  &trans  &trans  &trans  &trans
-  &trans         &kp LS(DLLR)  &kp LS(PRCNT)  &kp LS(CARET)  &trans           &trans  &trans  &trans  &trans  &trans
-  &trans         &kp LS(AMPS)  &kp LS(STAR)   &kp LS(LPAR)   &kp LS(TILDE)    &trans  &trans  &trans  &trans  &trans
-                               &kp LS(RPAR)   &trans         &trans           &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+                  &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
 
         bluetooth {
             bindings = <
-  &trans       &bt BT_SEL 0  &bt BT_SEL 2    &bt BT_SEL 2  &trans    &trans      &trans      &trans  &trans  &bt BT_CLR
+  &trans       &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &trans    &trans      &trans      &trans  &trans  &bt BT_CLR
   &trans       &bt BT_SEL 3  &bt BT_SEL 4    &trans        &trans    &bt BT_PRV  &bt BT_NXT  &trans  &trans  &trans
   &bootloader  &bt BT_CLR    &bt BT_CLR_ALL  &trans        &kp X     &trans      &trans      &trans  &trans  &bootloader
                              &sys_reset      &trans        &trans    &trans      &trans      &trans
@@ -191,19 +205,37 @@
 
         lyr_toggle_sel {
             bindings = <
+  &tog 8  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &to 0
   &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &tog 0  &trans    &trans  &tog 7  &trans  &trans  &trans
+  &tog 7  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+                  &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        windows {
+            bindings = <
+  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
   &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
                   &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
 
-        win_default_lyr {
+        cnc_windows {
             bindings = <
-  &kp Q      &kp W             &kp E         &kp R             &kp T      &kp Y      &kp U              &kp I          &kp O              &kp P
-  &kp A      &kp LEFT_CONTROL  &sk LEFT_ALT  &sk LEFT_COMMAND  &kp G      &kp H      &sk RIGHT_COMMAND  &sk RIGHT_ALT  &sk RIGHT_CONTROL  &colon_dance
-  &kp LSHFT  &kp Z             &kp X         &kp C             &kp V      &kp B      &kp N              &kp M          &r_pinky_dance     &kp RSHFT
-                               &trans        &kp TAB           &kp ESC    &kp ENTER  &kp SPACE          &kp BSPC
+  &trans  &trans  &trans            &trans  &trans    &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans            &trans  &trans    &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans            &trans  &trans    &trans  &trans  &trans  &trans  &trans
+                  &sk LEFT_CONTROL  &mo 9   &trans    &trans  &trans  &trans
+            >;
+        };
+
+        gaming_numbers {
+            bindings = <
+  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &trans  &trans  &trans  &trans  &trans
+  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0    &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+                  &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
