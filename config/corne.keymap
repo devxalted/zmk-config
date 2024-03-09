@@ -98,6 +98,13 @@
             #binding-cells = <0>;
             bindings = <&kp SQT>, <&kp GRAVE>, <&triple_grave>;
         };
+
+        right_control: right_control {
+            compatible = "zmk,behavior-tap-dance";
+            label = "RIGHT_CONTROL";
+            #binding-cells = <0>;
+            bindings = <&sk RIGHT_CONTROL>, <&sk RIGHT_SHIFT>;
+        };
     };
 
     combos {
