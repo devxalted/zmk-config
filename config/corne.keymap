@@ -26,7 +26,7 @@
             bindings = <&r_pinky_dance>, <&kp COMMA>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
+            mods = <(MOD_RALT)>;
         };
 
         colon_dance: colon_dance {
@@ -40,7 +40,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "MOD_KEYS";
             #binding-cells = <0>;
-            bindings = <&sk LEFT_ALT>, <&kp LEFT_CONTROL>;
+            bindings = <&sk RIGHT_ALT>, <&sk RIGHT_CONTROL>;
         };
 
         right_mod_cmd: right_mod_cmd {
@@ -99,11 +99,11 @@
             bindings = <&kp SQT>, <&kp GRAVE>, <&triple_grave>;
         };
 
-        right_control: right_control {
+        left_control: left_control {
             compatible = "zmk,behavior-tap-dance";
-            label = "RIGHT_CONTROL";
+            label = "LEFT_CONTROL";
             #binding-cells = <0>;
-            bindings = <&sk RIGHT_CONTROL>, <&sk RIGHT_SHIFT>;
+            bindings = <&sk RIGHT_CONTROL>, <&sk LEFT_ALT>;
         };
     };
 
@@ -130,6 +130,11 @@
             bindings = <&kp AT_SIGN>;
             key-positions = <10 19>;
         };
+
+        dollar {
+            bindings = <&kp DOLLAR>;
+            key-positions = <20 29>;
+        };
     };
 
     macros {
@@ -152,10 +157,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-  &kp Q           &kp W  &kp E      &kp R                             &kp T                                  &kp Y           &kp U                           &kp I             &kp O  &kp BACKSPACE
-  &kp A           &kp S  &kp D      &left_mod_command LEFT_COMMAND F  &kp G                                  &kp H           &right_mod_cmd RIGHT_COMMAND J  &kp K             &kp L  &quote
-  &sk LEFT_SHIFT  &kp Z  &kp X      &kp C                             &kp V                                  &kp B           &kp N                           &kp M             &kp P  &rpinkydancemod
-                         &mod_keys  &lt 1 TAB                         &escape LA(LC(LEFT_COMMAND)) ESCAPE    &enter 2 SPACE  &lt 4 ENTER                     &sk LEFT_CONTROL
+  &kp Q           &kp W  &kp E          &kp R                             &kp T                                  &kp Y           &kp U                           &kp I      &kp O  &kp BACKSPACE
+  &kp A           &kp S  &kp D          &left_mod_command LEFT_COMMAND F  &kp G                                  &kp H           &right_mod_cmd RIGHT_COMMAND J  &kp K      &kp L  &quote
+  &sk LEFT_SHIFT  &kp Z  &kp X          &kp C                             &kp V                                  &kp B           &kp N                           &kp M      &kp P  &rpinkydancemod
+                         &left_control  &lt 1 TAB                         &escape LA(LC(LEFT_COMMAND)) ESCAPE    &enter 2 SPACE  &lt 4 ENTER                     &mod_keys
             >;
         };
 
