@@ -182,10 +182,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-  &kp ESC         &kp O  &kp W  &kp R   &kp Y    &kp LEFT_PARENTHESIS  &kp B              &kp E         &kp LC(U)  &kp RIGHT_PARENTHESIS
-  &kp A           &kp S  &kp D  &kp F   &kp I    &kp LEFT_ARROW        &kp DOWN_ARROW     &kp UP_ARROW  &kp RIGHT  &kp PERCENT
-  &sk LEFT_SHIFT  &kp Z  &kp P  &kp C   &kp V    &kp LEFT_BRACE        &kp CARET          &kp DOLLAR    &kp LC(D)  &kp RIGHT_BRACE
-                         &none  &trans  &kp U    &mo 2                 &sk RIGHT_CONTROL  &kp G
+  &kp ESC         &kp N1  &kp N2  &kp N3  &none     &kp LEFT_PARENTHESIS  &kp B           &kp E         &kp LC(U)  &kp RIGHT_PARENTHESIS
+  &none           &kp N4  &kp N5  &kp N6  &kp N0    &kp LEFT_ARROW        &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &kp PERCENT
+  &sk LEFT_SHIFT  &kp N7  &kp N8  &kp N9  &none     &kp LEFT_BRACE        &kp CARET       &kp DOLLAR    &kp LC(D)  &kp RIGHT_BRACE
+                          &kp N0  &trans  &kp U     &sk RCTRL             &sk RSHFT       &kp G
             >;
         };
 
@@ -231,7 +231,7 @@
             >;
         };
 
-        util_design {
+        util_front {
             bindings = <
   &kp LS(LA(LC(I)))  &kp LS(LA(LC(J)))  &kp LS(LA(LC(K)))  &kp LS(LA(LC(L)))  &kp LS(LA(LC(M)))    &trans  &trans  &trans  &trans  &trans
   &kp LS(LA(LC(N)))  &kp LS(LA(LC(O)))  &kp LS(LA(LC(P)))  &kp LS(LA(LC(Q)))  &kp LS(LA(LC(R)))    &trans  &trans  &trans  &trans  &trans
