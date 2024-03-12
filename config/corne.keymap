@@ -46,7 +46,7 @@
         right_mod_cmd: right_mod_cmd {
             compatible = "zmk,behavior-hold-tap";
             label = "RIGHT_MOD_CMD";
-            bindings = <&kp>, <&kp>;
+            bindings = <&sk>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
@@ -57,7 +57,7 @@
         left_mod_command: left_mod_command {
             compatible = "zmk,behavior-hold-tap";
             label = "LEFT_MOD_COMMAND";
-            bindings = <&kp>, <&kp>;
+            bindings = <&sk>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
@@ -104,6 +104,15 @@
             label = "LEFT_CONTROL";
             #binding-cells = <0>;
             bindings = <&sk RIGHT_CONTROL>, <&sk LEFT_ALT>;
+        };
+
+        reverse_bck_slash: reverse_bck_slash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "REVERSE_BCK_SLASH";
+            bindings = <&kp PIPE>, <&kp BACKSLASH>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
         };
     };
 
@@ -197,9 +206,9 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-  &kp BACKSLASH   &kp N1  &kp N2        &kp N3   &kp PLUS     &kp UNDERSCORE    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp TILDE     &kp BACKSPACE
-  &kp ASTRK       &kp N4  &kp N5        &kp N6   &kp MINUS    &kp EQUAL         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &colon_dance  &kp SLASH
-  &sk LEFT_SHIFT  &kp N7  &kp N8        &kp N9   &kp POUND    &kp GREATER_THAN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE      &kp AMPERSAND
+  &kp SLASH       &kp N1  &kp N2        &kp N3   &kp PLUS     &kp UNDERSCORE    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp TILDE           &kp BACKSPACE
+  &kp ASTRK       &kp N4  &kp N5        &kp N6   &kp MINUS    &kp EQUAL         &kp LEFT_BRACE        &kp RIGHT_BRACE        &colon_dance        &kp SLASH
+  &sk LEFT_SHIFT  &kp N7  &kp N8        &kp N9   &kp POUND    &kp GREATER_THAN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &reverse_bck_slash  &kp AMPERSAND
                           &kp NUMBER_0  &kp TAB  &kp SPACE    &trans            &kp COLON             &kp LESS_THAN
             >;
         };
