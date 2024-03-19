@@ -136,6 +136,13 @@
             flavor = "tap-preferred";
             hold-trigger-key-positions = <5 15 25 26 16 6 7 17 27 28 18 8 9 19 29>;
         };
+
+        shift_tap: shift_tap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SHIFT_TAP";
+            #binding-cells = <0>;
+            bindings = <&sk LEFT_SHIFT>, <&kt LEFT_SHIFT>;
+        };
     };
 
     combos {
@@ -200,7 +207,7 @@
             bindings = <
   &kp Q                         &kp W  &kp E          &kp R                             &kp T                                  &kp Y           &kp U                           &kp I      &kp O  &kp BACKSPACE
   &left_shift_hrm LEFT_SHIFT A  &kp S  &kp D          &left_mod_command LEFT_COMMAND F  &kp G                                  &kp H           &right_mod_cmd RIGHT_COMMAND J  &kp K      &kp L  &right_shift_hrm RIGHT_SHIFT 0
-  &sk LEFT_SHIFT                &kp Z  &kp X          &kp C                             &kp V                                  &kp B           &kp N                           &kp M      &kp P  &rpinkydancemod
+  &shift_tap                    &kp Z  &kp X          &kp C                             &kp V                                  &kp B           &kp N                           &kp M      &kp P  &rpinkydancemod
                                        &left_control  &lt 1 TAB                         &escape LA(LC(LEFT_COMMAND)) ESCAPE    &enter 2 SPACE  &lt 4 ENTER                     &mod_keys
             >;
         };
