@@ -62,7 +62,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
-            hold-trigger-key-positions = <5 33 34 25 15 16 26 6 7 17 27 28 18 8 9 19 29 35>;
+            hold-trigger-key-positions = <5 33 34 25 15 16 26 6 7 17 27 28 18 8 9 19 29 35 31>;
         };
 
         right_thumb_tapdance: right_thumb_tapdance {
