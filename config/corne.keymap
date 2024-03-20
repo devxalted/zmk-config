@@ -18,6 +18,8 @@
             label = "R_PINKY_DANCE";
             #binding-cells = <0>;
             bindings = <&kp PERIOD>, <&kp QUESTION>, <&kp EXCLAMATION>;
+
+            tapping-term-ms = <300>;
         };
 
         rpinkydancemod: rpinkydancemod {
@@ -97,6 +99,8 @@
             label = "QUOTE";
             #binding-cells = <0>;
             bindings = <&kp SQT>, <&kp GRAVE>, <&triple_grave>;
+
+            tapping-term-ms = <300>;
         };
 
         left_control: left_control {
@@ -207,7 +211,7 @@
             bindings = <
   &kp Q                         &kp W  &kp E          &kp R                             &kp T                                  &kp Y           &kp U                           &kp I      &kp O  &kp BACKSPACE
   &left_shift_hrm LEFT_SHIFT A  &kp S  &kp D          &left_mod_command LEFT_COMMAND F  &kp G                                  &kp H           &right_mod_cmd RIGHT_COMMAND J  &kp K      &kp L  &right_shift_hrm RIGHT_SHIFT 0
-  &shift_tap                    &kp Z  &kp X          &kp C                             &kp V                                  &kp B           &kp N                           &kp M      &kp P  &rpinkydancemod
+  &sk LEFT_SHIFT                &kp Z  &kp X          &kp C                             &kp V                                  &kp B           &kp N                           &kp M      &kp P  &rpinkydancemod
                                        &left_control  &lt 1 TAB                         &escape LA(LC(LEFT_COMMAND)) ESCAPE    &enter 2 SPACE  &lt 4 ENTER                     &mod_keys
             >;
         };
